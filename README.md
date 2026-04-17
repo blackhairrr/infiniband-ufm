@@ -86,7 +86,7 @@ Bash
 sudo ufm_ha_cluster config -r standby \
   -l 192.168.12.32 \
   -e 192.168.12.14 \
-  -p R0bust123456! \
+  -p <password> \
   --enable-single-link \
   --no-vip
 ```
@@ -99,7 +99,7 @@ Bash
 sudo ufm_ha_cluster config -r master \
   -l 192.168.12.14 \
   -e 192.168.12.32 \
-  -p R0bust123456! \
+  -p <password> \
   -i 192.168.12.20 \
   --enable-single-link
 ```
