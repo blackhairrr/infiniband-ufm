@@ -45,16 +45,16 @@ systemctl start ufm-enterprise
 ### Preparing DRBD Disk
 ---------------------------------------------------------------------------------------------
 1. Verify volume group
-   <img width="519" height="111" alt="image" src="https://github.com/user-attachments/assets/25ba2109-56ee-4a75-bd7f-180862d38671" />
-  <img width="376" height="76" alt="image" src="https://github.com/user-attachments/assets/7400e791-372f-4871-aa7f-c310b37813ea" />
+<img width="519" height="111" alt="image" src="https://github.com/user-attachments/assets/25ba2109-56ee-4a75-bd7f-180862d38671" />
+<img width="376" height="76" alt="image" src="https://github.com/user-attachments/assets/7400e791-372f-4871-aa7f-c310b37813ea" />
 
 2. Create new lvm for DRBD
-	<img width="580" height="53" alt="image" src="https://github.com/user-attachments/assets/91a490e8-db01-4c22-a07f-77cbd581bba3" />
+<img width="580" height="53" alt="image" src="https://github.com/user-attachments/assets/91a490e8-db01-4c22-a07f-77cbd581bba3" />
  
 3. Verify lvm
-	<img width="666" height="60" alt="image" src="https://github.com/user-attachments/assets/ddec5716-881e-44e2-858b-9a9797c80ad5" />
-	<img width="566" height="126" alt="image" src="https://github.com/user-attachments/assets/b44dde4a-f426-4ae5-8f42-ea268ff206a7" />
-  <img width="436" height="37" alt="image" src="https://github.com/user-attachments/assets/389029e4-1243-4987-ae26-877ac13c4645" />
+<img width="666" height="60" alt="image" src="https://github.com/user-attachments/assets/ddec5716-881e-44e2-858b-9a9797c80ad5" />
+<img width="566" height="126" alt="image" src="https://github.com/user-attachments/assets/b44dde4a-f426-4ae5-8f42-ea268ff206a7" />
+<img width="436" height="37" alt="image" src="https://github.com/user-attachments/assets/389029e4-1243-4987-ae26-877ac13c4645" />
 
 
 4. The volume path for DRBD directory **/dev/ubuntu-vg/ufm-dir-lv**
@@ -256,37 +256,45 @@ In your current setup, the "heartbeat" (the cluster's pulse) and the "data repli
 #### Screenshot
 
 1- Before failover
-![[Pasted image 20260417110339.png]] 
+<img width="776" height="953" alt="image" src="https://github.com/user-attachments/assets/9585a9c1-81d7-423b-86fd-fb923a6b6223" />
+
 
 - Failover test 1 - sudo pcs node standby 192.168.12.14
-	![[Pasted image 20260417110819.png]]
+<img width="778" height="938" alt="image" src="https://github.com/user-attachments/assets/ae775989-3b3c-4b0e-9dc1-f5013c0c1a33" />
 
-	![[Pasted image 20260417110943.png]]
+<img width="1452" height="751" alt="image" src="https://github.com/user-attachments/assets/98c0bd3e-4221-4074-a185-a9d8e8f0bdc3" />
 
-	![[Pasted image 20260417111200.png]]
+<img width="712" height="692" alt="image" src="https://github.com/user-attachments/assets/1adfa6a5-aca4-4d6a-9463-8d12a7b4a6b2" />
+
 
 
 2. Failover test 2 - kill the container
-	![[Pasted image 20260417171043.png]]
+<img width="707" height="687" alt="image" src="https://github.com/user-attachments/assets/da04965b-6be6-4526-b607-d3faca07c8bc" />
+
 
 	- The ufm not starting to secondary node. This may risk to split brain since the resource agent is not configure yet with STONITH. 
 	- The ufm ha not send the instruction to the "hang node" to reboot.
 	- To rollback, need do some constraint clearance
 	Verify the constraint
-	![[Pasted image 20260417171358.png]]
+<img width="585" height="128" alt="image" src="https://github.com/user-attachments/assets/12131066-fb93-41d5-8620-60615cf69e5c" />
+
 
 	 Clear constraint
-	 ![[Pasted image 20260417171440.png]]
+<img width="617" height="307" alt="image" src="https://github.com/user-attachments/assets/f4bff8ce-e890-4446-97d8-00a9f53ce9aa" />
+
 	 
 		
 3. Failover test 3 - reboot current master
-![[Pasted image 20260417161955.png]]
+<img width="701" height="718" alt="image" src="https://github.com/user-attachments/assets/3ab56afc-c01d-45ba-85ec-7988a5e8bc90" />
+
 
 After the node back to online
-![[Pasted image 20260417162042.png]]
+<img width="695" height="724" alt="image" src="https://github.com/user-attachments/assets/833bf67d-1ee4-438b-8784-6c8081c42643" />
+
 
 
 Rollback
 
-![[Pasted image 20260417111925.png]]
+<img width="706" height="882" alt="image" src="https://github.com/user-attachments/assets/376606cf-a05b-4dfa-9c86-bf8c84517006" />
+
 
